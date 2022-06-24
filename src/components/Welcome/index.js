@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import '../assets/css/Welcome.css'
+import './style.css'
 
-export default function Welcome(){
+export default function index(){
     return(
         <div>
             <Link to='/Mesero' className='button'>Mesero</Link> <br></br>
