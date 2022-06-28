@@ -1,12 +1,10 @@
 body{
-    margin:0
-    
+    margin:10px
 }
 .header{
     background-color: #E5E5E5;
     display:flex;
     justify-content:center;
-
 }
 .logo-bq{
     max-height: 250px;
@@ -43,7 +41,7 @@ body{
 }
 .container-mesero{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr ;
 }
 .item-product{
     display:flex;
