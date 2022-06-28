@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/connection.js";
 
 export default function Index(props) {
   const [total, setTotal] = useState([]);
+
+  //const showItemsBreakfast = () => {
+  //return setData(menu.breakfast)
+  const getBreakFast = async () => {
+    const product = await getDocs(query(collection(db,'menu'), where("type", "==", "bebida")))
+
   //const showItemsBreakfast = () => {
   //return setData(menu.breakfast)
   const getBreakFast = async () => {
