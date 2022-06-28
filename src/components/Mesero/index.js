@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import {db} from '../../firebase/connection.js'
 import {useEffect, useState} from 'react'
@@ -31,12 +32,36 @@ return (
             <button onClick={showItemsBreakfast} className='buttonOrders'>Agregar</button>
             </div>
             ))}
+=======
+import menu from "../../menu.json"
+import {useEffect, useState, useContext} from 'react'
+
+export default function Orders(){
+    const [data, setData] = useState(menu.breakfast);
+    const [order, setOrder] = useState([]);
+    const [total, setTotal] = useState([]);
+ 
+    
+const showItemsBreakfast = () => {
+    return setData(menu.breakfast)
+};
+return (
+    <div id="ordersViewContainer">
+        <div id="ordersMenuOptions">
+            <button onclick={showItemsBreakfast} classname="buttonOrders"> Desayuno</button>
+        </div>
+        <div id="elementsOdersView">
+            <h1> data={data} </h1>
+>>>>>>> a20514d7714ad764b582c718dd757b35cc889cfc
         </div>
     </div>
 )
 }
+<<<<<<< HEAD
 //<button onClick={showItemsBreakfast} className=“buttonOrders”>Desayuno</button>
 
+=======
+>>>>>>> a20514d7714ad764b582c718dd757b35cc889cfc
 /*import React, { useState, useEffect } from 'react'
 
 import importBreakfast from '../../firebase/menu.js'
