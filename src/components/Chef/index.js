@@ -1,13 +1,7 @@
 import React from 'react'
 
-import PruebaUno from '../Mesero/pruebaBoost.js'
-
-const index =() =>{
+export default function index (){
     return(
-        <div className = "container">
-        <PruebaUno />
-        <h1>hola</h1>
-    </div>
+        <div>Chef</div>
     )
 }
-export default index

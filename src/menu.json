@@ -1,0 +1,68 @@
+{
+    "breakfast": [
+      {
+        "id": "Café americano",
+        "price": 5,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/cafeAmericano.png?alt=media&token=5e64258f-fcef-4d12-abfd-dd76e577a319"
+      },
+      {
+        "id": "Café con leche",
+        "price": 7,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/cafeConLeche.png?alt=media&token=44989d81-fe27-46ac-a1c3-426ef2156628"
+      },
+      {
+        "id": "Sandwich de jamón y queso",
+        "price": 10,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/panJamon.png?alt=media&token=0bf1292b-b43c-4f17-bbe5-9a90dc6dbdd0"
+      },
+      {
+        "id": "Jugo de frutas natural",
+        "price": 7,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/jugoDeFruta.png?alt=media&token=b6764941-417e-4230-b295-654f39acdccb"
+      }
+    ],
+    "lunch": [
+      {
+        "id": "Hamburguesa simple Pollo",
+        "price": 10,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/hamburgesaSimple.png?alt=media&token=67fe0208-b774-4dfd-8266-e492fd60ef81"
+      },
+      {
+        "id": "Hamburguesa doble Res",
+        "price": 15,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/hamburgesaDoble.png?alt=media&token=4bfdbe0d-ab39-4f6c-ab88-a8fc7ce1005e"
+      },
+      {
+        "id": "Papas fritas",
+        "price": 5,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/papasFritas.png?alt=media&token=3fc8743e-0a2f-4517-8426-ccb980a0c364"
+      },
+      {
+        "id": "Aros de cebolla",
+        "price": 5,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/arosDeCebolla.png?alt=media&token=8696a4d6-2174-458d-8053-4a951a627b96"
+      }
+    ],
+    "drinks": [
+      {
+        "id": "Agua 500ml",
+        "price": 5,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/agua.png?alt=media&token=e98d92a7-cd1a-487f-b76a-7bc85ae3983c"
+      },
+      {
+        "id": "Agua 750ml",
+        "price": 7,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/agua.png?alt=media&token=e98d92a7-cd1a-487f-b76a-7bc85ae3983c"
+      },
+      {
+        "id": "Bebida 500ml",
+        "price": 7,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/gaseosa.png?alt=media&token=9ba75f57-00ba-4892-8443-4a90866b984a"
+      },
+      {
+        "id": "Bebida 750ml",
+        "price": 10,
+        "img": "https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/gaseosa.png?alt=media&token=9ba75f57-00ba-4892-8443-4a90866b984a"
+      }
+    ]
+  }

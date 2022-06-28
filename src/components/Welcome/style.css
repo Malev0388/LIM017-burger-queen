@@ -1,18 +1,33 @@
+*{
+    background-color: #E5E5E5;
+    background-size: cover;
+}
+.container{
+    display: grid;
+    height: 86vh;
+    align-content: center;
+    justify-items: center;
+}
+.principal-logo-bq{
+    max-height: auto;
+    max-width: 387px;
+    padding: 30px;
+}
 a{
     text-decoration: none;
     color: white;
     background-color: black;
 }
-
-*{
-    background-color: #E5E5E5;
-    background-size: cover;
-}
-
 .btn{
     margin-right:12px;
     height: 38px;
     width: 150px;
     text-align: center ;
-    font-family: 'Kadwa', serif; 
+   
+}
+.btn.btn-welcome{
+    background-color: #F2BB6B;     
+    font-family: 'Kadwa', serif;
+    font-weight: bold;
+    border-radius: 0%;
 }

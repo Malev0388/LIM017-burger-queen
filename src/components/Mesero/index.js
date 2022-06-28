@@ -4,13 +4,10 @@ import {useEffect, useState} from 'react'
 import './style.css'
 
 import ItemCard from './pruebaBoost.js'
-
-
 export default function Orders(){
     const [total, setTotal] = useState([]);
     const getBreakFast = async () => {
     const data = await getDocs(query(collection(db,'menu'), where("type", "==", "bebida")))
-
     setTotal(data.docs.map((doc) => ({...doc.data(),id:doc.id}))
   )
  }
