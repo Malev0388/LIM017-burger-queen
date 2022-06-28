@@ -1,8 +1,8 @@
-import Welcome from './components/Welcome';
-import Chef from './components/Chef';
-import Mesero from './components/Mesero';
-import Admin from './components/Admin';
-import {BrowserRouter,Route,Routes,Navigate} from 'react-router-dom';
+import Welcome from './components/Welcome/index.js';
+import Chef from './components/Chef/index.js';
+import Index from './components/Mesero/index.js';
+import Admin from './components/Administrador/index.js';
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcome/>}/>
         <Route path="/chef" element={<Chef/>}/>
-        <Route path="/mesero" element={<Mesero/>}/>
+        <Route path="/mesero" element={<Index/>}/>
         <Route path="/admin" element={<Admin/>}/>
       </Routes>
     </BrowserRouter>
