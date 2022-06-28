@@ -3,16 +3,14 @@ a{
     color: white;
     background-color: black;
 }
-
 *{
     background-color: #E5E5E5;
     background-size: cover;
 }
-
 .btn{
     margin-right:12px;
     height: 38px;
     width: 150px;
     text-align: center ;
-    font-family: 'Kadwa', serif; 
+    font-family: 'Kadwa', serif;
 }
