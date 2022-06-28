@@ -1,5 +1,6 @@
 body{
-    margin:10px
+    margin:0
+    
 }
 .header{
     background-color: #E5E5E5;
@@ -9,7 +10,6 @@ body{
 .logo-bq{
     max-height: 250px;
     max-width: 250px;
-
 }
 .buttons-mesero{
     display: flex;
@@ -41,18 +41,30 @@ body{
 }
 .container-mesero{
     display: grid;
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
 }
 .item-product{
+    margin-left: 92px;
+    margin-right: 130px;
     display:flex;
     flex-direction: row;
+    border-bottom-style: dotted;
+    border-bottom-color: #F35F44;
+    justify-content:space-between;
 }
 .container-menu{
-    background-color:aqua;
     display: flex;
     flex-direction: column;
+    margin-top:30px;
 }
 .img-menu{
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 90px;
+    max-height: 90px;
+    margin-left: 20px;
+}
+.container-text-menu{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
 }

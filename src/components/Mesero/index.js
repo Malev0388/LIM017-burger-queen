@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { db } from "../../firebase/connection.js";
-import { collection, getDocs, addDoc , where, query} from "firebase/firestore";
 import "./style.css";
-
-
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/connection.js";
 export default function Index(props) {
   const [total, setTotal] = useState([]);
+  //const showItemsBreakfast = () => {
+  //return setData(menu.breakfast)
   const getBreakFast = async () => {
     const product = await getDocs(query(collection(db,'menu'), where("type", "==", "bebida")))
     setTotal(product.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
-
   useEffect(() => {
     getBreakFast();
   }, []);
-
   return (
     <div className="mesero">
       <header className="header">
@@ -29,28 +27,22 @@ export default function Index(props) {
         <div className="button-menu"> Menu </div>
         <div className="button-pedidos"> Pedidos Listos </div>
       </div>
-
       <div className="container-mesero">
         <div className="container-menu">
-         {total.map((item) => (
-            <div className="container-button">
-          <button>
-            <div className="item-product" id={item.id}>
-            <img
-             className="img-menu"
-             src={item.image}
-             alt="img-menu"
-           />
-            <div className="container-text-menu">
+        {total.map((item) => (
+            <div className="item-product" key={item.id}>
+          <img
+            className="img-menu"
+            src={item.image}
+            alt="img-menu"
+          />
+          <div className="container-text-menu">
             <p className="name-product"> {item.product} </p>
             <p className="precio"> S/. {item.price} </p>
-            </div>
-            </div>
-          </button>
-           </div>
+          </div>
+          </div>
           ))}
         </div>
-        
         <div className="car">
           <p> Esta es la parte del carrito </p>
         </div>
