@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/connection.js";
 
 export default function Index(props) {
@@ -10,6 +11,11 @@ export default function Index(props) {
   //return setData(menu.breakfast)
   const getBreakFast = async () => {
     const product = await getDocs(query(collection(db,'menu'), where("type", "==", "bebida")))
+
+  //const showItemsBreakfast = () => {
+  //return setData(menu.breakfast)
+  const getBreakFast = async () => {
+    const product = await getDocs(collection(db, "menu"));
     setTotal(product.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
   useEffect(() => {

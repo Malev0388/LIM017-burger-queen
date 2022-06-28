@@ -70,3 +70,15 @@ body{
     align-items: flex-end;
     justify-content: flex-end;
 }
+    display:flex;
+    flex-direction: row;
+}
+.container-menu{
+    background-color:aqua;
+    display: flex;
+    flex-direction: column;
+}
+.img-menu{
+    max-width: 100px;
+    max-height: 100px;
+}
