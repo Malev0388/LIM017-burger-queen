@@ -1,10 +1,44 @@
 import menu from "../../menu.json"
-import {useEffect, useState, useContext} from 'react'
+import { collection, getDocs } from "firebase/firestore";
+import {db} from "../../firebase/connection.js"
+import {useEffect, useState} from 'react'
+export default function Orders(){
+    //const [data, setData] = useState(menu.breakfast);
+    //const [order, setOrder] = useState([]);
+    const [total, setTotal] = useState([]);
+//const showItemsBreakfast = () => {
+    //return setData(menu.breakfast)
+    const getBreakFast = async () => {
+    const product = await getDocs(collection(db,'menu'));
+    setTotal(product.docs.map((doc) => ({...doc.data(),id:doc.id}))
+  )
+ }
+    useEffect(() => {
+     getBreakFast()
+    }, []);
+return (
+    <div id="ordersViewContainer">
+        <div id="ordersMenuOptions">
+            {total.map(item => (
+                <div key={item.id}>
+            <img src={item.image} alt=''/>
+            <h1>{item.product}</h1>
+            <h3>{item.price}</h3>
+            <button className="buttonOrders"> Desayuno</button>
+            </div>
+            ))}
+        </div>
+    </div>
+)
+}
+
+/*import menu from "../../menu.json"
+import {useState} from 'react'
 
 export default function Orders(){
     const [data, setData] = useState(menu.breakfast);
-    const [order, setOrder] = useState([]);
-    const [total, setTotal] = useState([]);
+    //const [order, setOrder] = useState([]);
+    //const [total, setTotal] = useState([]);
  
     
 const showItemsBreakfast = () => {
@@ -13,14 +47,11 @@ const showItemsBreakfast = () => {
 return (
     <div id="ordersViewContainer">
         <div id="ordersMenuOptions">
-            <button onclick={showItemsBreakfast} classname="buttonOrders"> Desayuno</button>
-        </div>
-        <div id="elementsOdersView">
-            <h1> data={data} </h1>
+            <button onClick={showItemsBreakfast} className="buttonOrders"> Desayuno</button>
         </div>
     </div>
 )
-}
+}*/
 /*import React, { useState, useEffect } from 'react'
 
 import importBreakfast from '../../firebase/menu.js'
