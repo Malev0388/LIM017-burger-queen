@@ -1,0 +1,60 @@
+body{
+    margin:0
+    
+}
+.header{
+    background-color: #E5E5E5;
+    display:flex;
+    justify-content:center;
+
+}
+.logo-bq{
+    max-height: 250px;
+    max-width: 250px;
+
+}
+.buttons-mesero{
+    display: flex;
+    justify-content: space-around;
+}
+.button-desayuno{
+    margin:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #F35F44;
+}
+.button-menu{
+    margin:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #F2BB6B;
+}
+.button-pedidos{
+    margin:10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #4EA7AD;
+}
+.container-mesero{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.item-product{
+    display:flex;
+    flex-direction: row;
+}
+.container-menu{
+    background-color:aqua;
+    display: flex;
+    flex-direction: column;
+}
+.img-menu{
+    max-width: 100px;
+    max-height: 100px;
+}

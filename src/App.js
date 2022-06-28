@@ -2,7 +2,7 @@ import Welcome from './components/Welcome/index.js';
 import Chef from './components/Chef/index.js';
 import Index from './components/Mesero/index.js';
 import Admin from './components/Administrador/index.js';
-import {BrowserRouter,Route,Routes,Navigate} from 'react-router-dom';
+import {BrowserRouter,Route,Routes,} from 'react-router-dom';
 
 function App() {
   return (
