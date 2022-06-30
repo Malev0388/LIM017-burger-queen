@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where} from "firebase/firestore";
 import { db } from "../../firebase/connection.js";
 
-export default function Index(props) {
+export default function Index() {
   const [total, setTotal] = useState([]);
-
-  //const showItemsBreakfast = () => {
-  //return setData(menu.breakfast)
   const getBreakFast = async () => {
-    const product = await getDocs(query(collection(db,'menu'), where("type", "==", "bebida")))
+    const product = await getDocs(
+      query(collection(db, "menu"), where("type", "==", "bebida"))
+    );
     setTotal(product.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
   useEffect(() => {
     getBreakFast();
   }, []);
+
+  const [listOrders, setListOrders] = useState([]);
+  const createOrder = (e, productSelected) => {
+    e.preventDefault();
+    const newOrders = [...listOrders, productSelected];
+    setListOrders(newOrders)
+    console.log(listOrders);
+  };
+
   return (
     <div className="mesero">
       <header className="header">
@@ -31,22 +39,22 @@ export default function Index(props) {
       </div>
       <div className="container-mesero">
         <div className="container-menu">
-        {total.map((item) => (
-            <div className="item-product" key={item.id}>
-          <img
-            className="img-menu"
-            src={item.image}
-            alt="img-menu"
-          />
-          <div className="container-text-menu">
-            <p className="name-product"> {item.product} </p>
-            <p className="precio"> S/. {item.price} </p>
-          </div>
-          </div>
+          {total.map((item) => (
+            <div
+              onClick={(e) => createOrder(e, item)}
+              className="item-product"
+              key={item.id}
+            >
+              <img className="img-menu" src={item.image} alt="img-menu" />
+              <div className="container-text-menu">
+                <p className="name-product"> {item.product} </p>
+                <p className="precio"> S/. {item.price} </p>
+              </div>
+            </div>
           ))}
         </div>
         <div className="car">
-          <p> Esta es la parte del carrito </p>
+          <p> este es el carrito </p>
         </div>
       </div>
     </div>
