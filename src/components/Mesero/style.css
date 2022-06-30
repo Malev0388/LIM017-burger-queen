@@ -6,7 +6,6 @@ body{
     background-color: #E5E5E5;
     display:flex;
     justify-content:center;
-
 }
 .logo-bq{
     max-height: 250px;
@@ -52,7 +51,6 @@ body{
     border-bottom-style: dotted;
     border-bottom-color: #F35F44;
     justify-content:space-between;
-
 }
 .container-menu{
     display: flex;
@@ -69,16 +67,4 @@ body{
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
-}
-    display:flex;
-    flex-direction: row;
-}
-.container-menu{
-    background-color:aqua;
-    display: flex;
-    flex-direction: column;
-}
-.img-menu{
-    max-width: 100px;
-    max-height: 100px;
 }
