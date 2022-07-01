@@ -6,20 +6,18 @@ const BreakfastProduct= (props) => {
   const { addItem } = useCart();
 
     return( 
-      <div className='container-menu'>
+      
+      <div className='container-menu' onClick={() => addItem(props.item)}>
       <div className='item-product' key={props.id}>
         <img src={props.image} className='img-menu' alt="img-menu"/>
 
         <div className="container-text-menu">
           <p className='name-product'>{props.product} </p>
-          <p className='precio'>precio:s/.{props.price} </p>
-
-          <button className='btn btn-success'
-           onClick={() => addItem(props.item)} >Agregar</button>
-         
+          <p className='precio'>precio:s/.{props.price} </p>    
         </div>  
           </div>
-      </div>      
+      </div>   
+      
     );
 }
 export default BreakfastProduct;
