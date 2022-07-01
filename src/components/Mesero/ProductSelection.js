@@ -19,7 +19,7 @@ import { collection, addDoc } from "firebase/firestore";
          emptyCart,
      } = useCart();
 
-     if(isEmpty) return <h1 className="text-center">soy un carrito</h1>
+     if(isEmpty) return <h1 className="text-center">ORDEN</h1>
      
      ///////////
     /* const usersCollectionRefDos = collection(db,"orden");

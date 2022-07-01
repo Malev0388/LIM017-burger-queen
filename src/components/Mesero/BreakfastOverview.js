@@ -27,14 +27,12 @@ const BreakfastOverview = () =>{
           alt="logo-bq"
           className="logo-bq"
         />
-      </header>
-
-      <div className="buttons-mesero">
-        <div className="button-desayuno"> Desayuno </div>
-        <div className="button-menu"> Menu </div>
-        <div className="button-pedidos"> Pedidos Listos </div>
-      </div>
-
+      </header>        
+      <ul>
+        <li><a className="button-desayuno" href="#Desayuno">DESAYUNO</a></li>
+        <li><a className="button-menu" href="#Menu">MENÚ</a></li>
+        <li><a className="button-pedidos" href="#Pedidos">PEDIDOS LISTOS</a></li>
+      </ul>         
       <div className="container-mesero">
         <div className="">
         {total.map((item )=>{
@@ -52,6 +50,7 @@ const BreakfastOverview = () =>{
 
         <div className="car">
          <ProductSelection></ProductSelection>
+
         </div>
       </div>
     </div>
