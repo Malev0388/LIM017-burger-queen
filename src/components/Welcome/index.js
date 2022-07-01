@@ -4,6 +4,7 @@ import './style.css'
 
 export default function index(){
     return(
+        
         <div className='container'>
             <div className='welcome'>
                 <img
