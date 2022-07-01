@@ -20,14 +20,19 @@ a{
 }
 .btn{
     margin-right:12px;
-    height: 38px;
-    width: 150px;
-    text-align: center ;
-   
+    height: 45px;
+    width: 200px;
+    text-align: center ;   
 }
 .btn.btn-welcome{
     background-color: #F2BB6B;     
     font-family: 'Kadwa', serif;
     font-weight: bold;
     border-radius: 0%;
+    font-size: 20px;
+    border: black;
+    border-style: solid;
+    border-width: 3px;
+
 }
+
