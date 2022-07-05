@@ -1,12 +1,11 @@
-import ViewMesero from './ViewMesero.js'
-import BreakfastOverview from "./BreakfastOverview.js";
+/*import ViewMesero from './ViewMesero.js'*/
+import BreakfastOverview from "./Breakfast/BreakfastOverview.js";
 import { CartProvider } from "react-use-cart";
 
 const Index =() => {
   return (
     <div>
       <CartProvider>
-        <ViewMesero />
         <BreakfastOverview />
       </CartProvider>
     </div>
