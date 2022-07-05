@@ -1,8 +1,8 @@
-import React from "react";
+//import React from "react";
 import { useCart } from "react-use-cart";
 import { db } from "../../firebase/connection.js";
-import { useState, useEffect } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import React, { useState } from "react";
+import { collection, addDoc ,query} from "firebase/firestore";
 
 /*----------------SELECCION DE PRODUCTOS------------*/
 const ProductSelection = () => {
@@ -43,37 +43,39 @@ const ProductSelection = () => {
           </h5>*/
 
   ///
+ /**
+   onChange={(event)=>{ 
+                    setTitle(event.target.value)
+                  }}
+  */
+
+//
+
+
   return (
     <section className="py-4 container">
       <h1 className="text-center"> ORDEN </h1>
       <div className="row justify-content-center">
             <div>
-              {items.map((item, id) => {
+              {items.map((item, id) => {      
                 return (
-                  <div key={id}>
+                  <div key={id} >
                     <div className="container-product-selection">
-                      <div>{item.product} </div>
+                      <div > {item.product} </div>
                       <div className="buttons-options-products">
                         <button
                           className="btn-reduce-product"
                           onClick={() =>
                             updateItemQuantity(item.id, item.quantity - 1)
                           }
-                        >
-                          {" "}
-                          -{" "}
-                        </button>
+                        > {" "} - {" "} </button>
                         <div className="quantity-product"> {item.quantity} </div>
                         <button
                           className="btn-add-product"
                           onClick={() =>
                             updateItemQuantity(item.id, item.quantity + 1)
                           }
-                        >
-                          {" "}
-                          +{" "}
-                        </button>
-                        
+                        >{" "}+{" "} </button>
                       </div>
                       <img
                           className="image-remove-all"
@@ -88,7 +90,7 @@ const ProductSelection = () => {
             </div>
         <div>
           <h3>total:{cartTotal} </h3>
-          <button>Enviar</button>
+          <button >Enviar</button>
         </div>
       </div>
     </section>
@@ -97,6 +99,7 @@ const ProductSelection = () => {
 export default ProductSelection;
 
 /*
+ 
  const usersCollectionRefDos = collection(db,"orden");
  const [producto, ] =  useState([]);
  const [precio, price] =  useState([""]);
@@ -124,3 +127,6 @@ const usersCollectionRefDos = collection(db,"orden");
 //////////////////////////////////////////////////
  <button onClick={showItemsBreakfast} className="buttonOrders">Agregar</button>
 */
+
+
+
