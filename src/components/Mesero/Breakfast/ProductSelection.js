@@ -1,8 +1,8 @@
 //import React from "react";
 import { useCart } from "react-use-cart";
-import { db } from "../../firebase/connection.js";
-import React, { useState } from "react";
-import { collection, addDoc ,query} from "firebase/firestore";
+import { db } from "../../../firebase/connection.js";
+import { useState, useEffect } from "react";
+import { collection, addDoc } from "firebase/firestore";
 
 /*----------------SELECCION DE PRODUCTOS------------*/
 const ProductSelection = () => {
