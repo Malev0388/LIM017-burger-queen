@@ -6,37 +6,19 @@ import BreakfastProduct from "./BreakfastProduct.js";
 import ProductSelection from "./ProductSelection.js";
 
 /*----------------VISTA GENERAL DESAYUNO------------*/
-const BreakfastOverview = () =>{
+export const BreakfastOverview = () =>{
 
   const [total, setTotal] = useState([]);
   const getBreakFast = async () => {
-    const product = await getDocs(query(collection(db,'menu'), where("type", "==", "lunch")))
+    const product = await getDocs(query(collection(db,'menu'), where("type", "==", "breakfast")))
     setTotal(product.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
   useEffect(() => {
     getBreakFast();
   }, []);
-
   return (
-    <div className="mesero">
-      <header className="header">
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/logo-bq.PNG?alt=media&token=ff5fc092-8e35-45fc-ab81-6b4a4a7efa45"
-          alt="logo-bq"
-          className="logo-bq"
-        />
-      </header>
-
-      <ul>  
-        <li><a className="button-desayuno"  >DESAYUNO</a></li>
-        <li><a className="button-menu"   >MENÚ</a></li>
-        <li><a className="button-pedidos" >PEDIDOS LISTOS</a></li>
-      </ul>
-
-      <div className="container-mesero" id="page1"  >
-     
-        
+      <div className="container-mesero">
         <div className="">
         {total.map((item )=>{
                     return(          
@@ -56,11 +38,6 @@ const BreakfastOverview = () =>{
          </ProductSelection>
         </div>
       </div>
-
-      <div >
-        <p>hola</p>
-      </div>
-    </div>
   );
 }
 
