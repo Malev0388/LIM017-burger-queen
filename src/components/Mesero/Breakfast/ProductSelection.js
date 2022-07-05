@@ -1,6 +1,6 @@
 import React from "react";
 import { useCart } from "react-use-cart";
-import { db } from "../../firebase/connection.js";
+import { db } from "../../../firebase/connection.js";
 import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
 

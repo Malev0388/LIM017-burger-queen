@@ -1,6 +1,7 @@
-import {useState} from 'react';
-import BreakfastOverview from './BreakfastOverview.js'
-import MenuOverview from './MenuOverview.js'
+/*import {useState} from 'react';
+import BreakfastOverview from './Breakfast/BreakfastOverview.js'
+import MenuOverview from './Menu/MenuOverview.js'
+import { Link } from "react-router-dom";
 
 const ViewMesero = () => {
 
@@ -13,13 +14,14 @@ const ViewMesero = () => {
           className="logo-bq"
         />
       </header>
+
       <ul>
-        <li><a className="button-desayuno" href="#Desayuno">DESAYUNO</a></li>
-        <li><a className="button-menu" href="#Menu">MENÚ</a></li>
-        <li><a className="button-pedidos" href="#Pedidos">PEDIDOS LISTOS</a></li>
+        <li><Link className="button-desayuno" to="/mesero">DESAYUNO</Link></li>
+        <li><Link className="button-menu" to="/menu">MENÚ</Link></li>
+        <li><Link className="button-pedidos" to="/pedidos">PEDIDOS LISTOS</Link></li>
       </ul>
     </div>
     )
 }
 
-export default ViewMesero;
+export default ViewMesero;*/
