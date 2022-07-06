@@ -90,19 +90,17 @@ const ProductSelection = () => {
             })}
           </div>
 
-          <colum className="totalPriceStyle">
+          <div className="totalPriceStyle">
             <h3 className="totalPrice">Total: </h3>
             <h3 className="priceStyle"> S/. {cartTotal} </h3>
-          </colum>
+          </div>
           <div className="commentsSentStyle">
             <textarea
               className="commentsStyle"
               placeholder="Escribe aquí un comentario"
               onChange={(event) => {
                 setComent(event.target.value);
-              }}>
-              {" "}
-            </textarea>
+              }}></textarea>
           </div>
 
           <div>
