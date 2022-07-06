@@ -97,6 +97,7 @@ const ProductSelection = () => {
           <div className="commentsSentStyle">
             <textarea
               className="commentsStyle"
+              placeholder="Escribe aquí un comentario"
               onChange={(event) => {
                 setComent(event.target.value);
               }}>
