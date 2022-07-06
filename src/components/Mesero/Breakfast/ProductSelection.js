@@ -1,4 +1,4 @@
-import React from "react";
+//import React from "react";
 import { useCart } from "react-use-cart";
 import { db } from "../../../firebase/connection.js";
 import { useState, useEffect } from "react";
@@ -17,17 +17,16 @@ const ProductSelection = () => {
     emptyCart,
   } = useCart();
 
-  if (isEmpty) return <h1> </h1>;
+  //if (isEmpty) return <h1> ORDEN </h1>;
 
   ///////////
-  /* const usersCollectionRefDos = collection(db,"orden");
-     const [producto,product ] =  useState([]);
-     const [precio, price] =  useState([""]);
+ const usersCollectionRefDos = collection(db,"orden");
+     const [name,clientName ] =  useState([]);
+     const [table, tableNum] =  useState([""]);
      const enviar = async() =>{
         // await addDoc (usersCollectionRefDos,{product:precio, price:producto})
-        await addDoc (usersCollectionRefDos,{product:producto,price:precio })
+        await addDoc (usersCollectionRefDos,{name:name,table:table })
      };
-     */
 
   /*const enviar = async()=>{
         const producto = item.product;
@@ -43,37 +42,43 @@ const ProductSelection = () => {
           </h5>*/
 
   ///
+ /**
+   onChange={(event)=>{ 
+                    setTitle(event.target.value)
+                  }}
+  */
+
+//
+
+
   return (
-    <section className="py-4 container">
-      <h1 className="text-center"> ORDEN </h1>
+    <><div>
+      <h1 className="text-center"> ORDEN </h1><br/>
+      <input className="inputOrder" type="text" placeholder="Cliente" onChange={(event)=>{clientName(event.target.value)}}/>               
+      <input className="inputOrder" type="number" placeholder="Mesa" onChange={(event)=>{tableNum(event.target.value)}}/>
+    </div>
+    <section className="container2">
       <div className="row justify-content-center">
             <div>
-              {items.map((item, id) => {
+              {items.map((item, id) => {      
                 return (
-                  <div key={id}>
+                  <div key={id} >
                     <div className="container-product-selection">
-                      <div>{item.product} </div>
+                      <div > {item.product} </div>
                       <div className="buttons-options-products">
                         <button
                           className="btn-reduce-product"
                           onClick={() =>
                             updateItemQuantity(item.id, item.quantity - 1)
                           }
-                        >
-                          {" "}
-                          -{" "}
-                        </button>
+                        > {" "} - {" "} </button>
                         <div className="quantity-product"> {item.quantity} </div>
                         <button
                           className="btn-add-product"
                           onClick={() =>
                             updateItemQuantity(item.id, item.quantity + 1)
                           }
-                        >
-                          {" "}
-                          +{" "}
-                        </button>
-                        
+                        >{" "}+{" "} </button>
                       </div>
                       <img
                           className="image-remove-all"
@@ -86,17 +91,31 @@ const ProductSelection = () => {
                 );
               })}
             </div>
+
+  
+        <colum className="totalPriceStyle">
+          <h3 className="totalPrice">Total: </h3>
+          <h3 className="priceStyle"> S/. {cartTotal} </h3>
+        </colum>
+        <div className="commentsSentStyle">
+          <textarea className="commentsStyle"> </textarea>
+          <button className="sentButton" onClick={enviar}>Enviar</button>  
+        </div>       
+
         <div>
           <h3>total:{cartTotal} </h3>
-          <button>Enviar</button>
+          <button >Enviar</button>
         </div>
+
       </div>
     </section>
+    </>
   );
 };
 export default ProductSelection;
 
 /*
+ 
  const usersCollectionRefDos = collection(db,"orden");
  const [producto, ] =  useState([]);
  const [precio, price] =  useState([""]);
@@ -124,3 +143,6 @@ const usersCollectionRefDos = collection(db,"orden");
 //////////////////////////////////////////////////
  <button onClick={showItemsBreakfast} className="buttonOrders">Agregar</button>
 */
+
+
+

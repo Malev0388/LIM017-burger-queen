@@ -6,7 +6,6 @@ import BreakfastProduct from "./BreakfastProduct.js";
 import ProductSelection from "./ProductSelection.js";
 import { Link } from "react-router-dom";
 
-
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const BreakfastOverview = () =>{
 
@@ -51,35 +50,45 @@ export const BreakfastOverview = () =>{
                 })}
         </div>
 
-        <div className="car">
-         <ProductSelection></ProductSelection>
+        <div className="car" id="page2">
+         <ProductSelection>
+         </ProductSelection>
         </div>
       </div>
       </div>
   );
 }
+
 export default BreakfastOverview;
+
 /*
-////////////////////////////////////////////////////
-const usersCollectionRefDos = collection(db,"orden");
- const showItemsBreakfast = async() =>{
-    // await addDoc (usersCollectionRefDos,{product:precio, price:producto})
-    await addDoc (usersCollectionRefDos,{product:total })
- };
-//////////////////////////////////////////////////
- <button onClick={showItemsBreakfast} className="buttonOrders">Agregar</button>
-*/
-/*
-export default function Index() {
+import React, { useEffect, useState } from "react";
+import "./style.css";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { db } from "../../firebase/connection.js";
+import BreakfastProduct from "./BreakfastProduct.js";
+import ProductSelection from "./ProductSelection.js";
+
+const BreakfastOverview = () =>{
+
   const [total, setTotal] = useState([]);
   const getBreakFast = async () => {
-    const product = await getDocs(query(collection(db,'menu'), where("type", "==", "bebida")))
+    const product = await getDocs(query(collection(db,'menu'), where("type", "==", "lunch")))
     setTotal(product.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
+
   useEffect(() => {
     getBreakFast();
   }, []);
+  ///////////////////////
+  const [isShown, setIsShown] = useState(true);
+  const handleClick = event => {
+    // 👇️ toggle visibility
+    setIsShown(current => !current);
+  }; 
+  //////////////////////
   return (
+
     <div className="mesero">
       <header className="header">
         <img
@@ -89,36 +98,41 @@ export default function Index() {
         />
       </header>
 
-      <div className="buttons-mesero">
-        <div className="button-desayuno"> Desayuno </div>
-        <div className="button-menu"> Menu </div>
-        <div className="button-pedidos"> Pedidos Listos </div>
-      </div>
+      <ul>
+        <li><a className="button-desayuno" onClick={handleClick}>DESAYUNO</a></li>
+        <li><a className="button-menu" onClick={handleClick}>MENÚ</a></li>
+        <li><a className="button-pedidos" >PEDIDOS LISTOS</a></li>
+      </ul>
 
-
-      <div className="container-mesero">
-        <div className="container-menu">
-        {total.map((item) => (
-            <div className="item-product" id={item.id}>
-          <img
-            className="img-menu"
-            src={item.image}
-            alt="img-menu"
-          />
-          <div className="container-text-menu">
-            <p className="name-product"> {item.product} </p>
-            <p className="precio"> S/. {item.price} </p>
-          </div>
-          </div>
-          ))}
+      <div className="container-mesero" id="Desayuno" 
+      style={{display: isShown ? 'block' : 'none'}}>
+        
+        <div className="">
+        {total.map((item )=>{
+                    return(          
+                       <BreakfastProduct 
+                       image={item.image} 
+                       product={item.product} 
+                       price={item.price} 
+                       key={item.id}
+                       item={item}
+                       ></BreakfastProduct>  
+                    )
+                })}
         </div>
 
         <div className="car">
-          <p> Esta es la parte del carrito </p>
+         <ProductSelection>
+         </ProductSelection>
         </div>
+      </div>
+
+      <div style={{display: isShown ? 'none' : 'block' }} >
+        <p>hola</p>
       </div>
 
     </div>
   );
 }
+export default BreakfastOverview;
 */
