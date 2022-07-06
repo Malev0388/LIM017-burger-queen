@@ -2,22 +2,22 @@ import React, { useEffect, useState } from "react";
 import "../style.css";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../firebase/connection.js";
-import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
-import ProductSelection from "../Breakfast/ProductSelection.js";
+import MenuProduct from "./MenuProducts.js";
+import ProductSelection from "./ProductSelection.js";
 import { Link } from "react-router-dom";
 
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const MenuOverview = () => {
   const [total, setTotal] = useState([]);
-  const getLunch = async () => {
-    const productLunch = await getDocs(
+  const getBreakFast = async () => {
+    const product = await getDocs(
       query(collection(db, "menu"), where("type", "==", "lunch"))
     );
-    setTotal(productLunch.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    setTotal(product.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
   useEffect(() => {
-    getLunch();
+    getBreakFast();
   }, []);
   return (
     <div>
@@ -52,25 +52,28 @@ export const MenuOverview = () => {
         <div className="">
           {total.map((item) => {
             return (
-              <BreakfastProduct
+              <MenuProduct
                 image={item.image}
                 product={item.product}
                 price={item.price}
                 key={item.id}
                 item={item}
-              ></BreakfastProduct>
+              ></MenuProduct>
             );
           })}
         </div>
 
-        <div className="car">
+        <div className="car" id="page2">
           <ProductSelection></ProductSelection>
-        </div>
-        <div>
-          <input className="NameCliente" />
         </div>
       </div>
     </div>
   );
 };
+
 export default MenuOverview;
+
+
+
+
+
