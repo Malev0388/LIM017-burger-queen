@@ -60,6 +60,13 @@ export const BreakfastOverview = () =>{
 }
 export default BreakfastOverview;
 /*
+  const insertOrder = (items) => {
+    let pedidos = items.map((item, id) => {
+      return item.product;
+    });
+    return addDoc(collection(db, "orders"), pedidos);
+  };
+
 ////////////////////////////////////////////////////
 const usersCollectionRefDos = collection(db,"orden");
  const showItemsBreakfast = async() =>{
