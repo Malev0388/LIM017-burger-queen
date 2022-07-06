@@ -28,14 +28,14 @@ const ProductSelection = () => {
   };
 
   return (
-    <>
+    <div className="containerOrder">
       <div>
         <h1 className="text-center"> ORDEN </h1>
         <br />
         <input
           className="inputOrder"
           type="text"
-          placeholder="Cliente"
+          placeholder="CLIENTE"
           onChange={(event) => {
             clientName(event.target.value);
           }}
@@ -43,7 +43,7 @@ const ProductSelection = () => {
         <input
           className="inputOrder"
           type="number"
-          placeholder="Mesa"
+          placeholder="MESA"
           onChange={(event) => {
             tableNum(event.target.value);
           }}
@@ -90,10 +90,10 @@ const ProductSelection = () => {
             })}
           </div>
 
-          <colum className="totalPriceStyle">
+          <div className="totalPriceStyle">
             <h3 className="totalPrice">Total: </h3>
             <h3 className="priceStyle"> S/. {cartTotal} </h3>
-          </colum>
+          </div>
           <div className="commentsSentStyle">
             <textarea
               className="commentsStyle"
@@ -101,22 +101,20 @@ const ProductSelection = () => {
               onChange={(event) => {
                 setComent(event.target.value);
               }}>
-              {" "}
             </textarea>
           </div>
 
           <div>
-            <h3>total:{cartTotal} </h3>
             <button
               className="sentButton"
               onClick={() => insertOrder(name, table, coment, items)}
             >
-              Enviar
+              ENVIAR
             </button>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 export default ProductSelection;
