@@ -15,6 +15,7 @@ body{
 .buttons-mesero{
     display: flex;
     justify-content: space-around;
+    /*align-items: center;*/
 }
 .button-desayuno{
     /*margin:10px;
@@ -122,11 +123,25 @@ ul {
   }
 .inputOrder{
     margin: 30px 120px 15px -87px;
-
+    background-color: #F2BB6B;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 100px; 
+    font-family: 'Kadwa', serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 32px;
+}
+.inputOrder::placeholder{
+    color: black;
+    padding: 5px 10px;
+    
 }
 .container-product-selection{
     border-color: black;
     border-style: solid;
+    border-width: 2px;
     border-radius: 100px;
     background-color: #4EA7AD;
     display: flex;
@@ -186,24 +201,52 @@ ul {
     height: 35px;
     width: 120px;
     margin-left: 7px;
-    margin-top: 30px;
+    margin-top: 24px;
 }
 .totalPriceStyle{
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: inherit;
 }
-.commentsSentStyle{
+/*.commentsSentStyle{
     display: flex;
     align-items: center;
     justify-content: center;
-}
+}*/
 .commentsStyle {
-    width:374px;
+    width:398px;
     height: 88px;
-
+    background-color:#E5E5E5;
+    font-family: 'Kadwa', serif;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    margin-top:10px
 }
-
+.commentsStyle::placeholder{
+    color: black;
+    padding: 5px 10px;
+}
+textarea{
+    resize: none;
+}
+.sentButton{
+    background-color: #F2BB6B;     
+    font-family: 'Kadwa', serif;
+    font-weight: bold;
+    border-radius: 0%;
+    font-size: 20px;
+    border: black;
+    border-style: solid;
+    border-width: 2px;
+    width: 121px;
+    height: 38px;
+}
+.containerOrder{
+    background-color: #F2BB6B;
+    
+}
 
 
 
