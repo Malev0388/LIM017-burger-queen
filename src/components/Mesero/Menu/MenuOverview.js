@@ -54,6 +54,9 @@ export const MenuOverview = () =>{
         <div className="car">
          <ProductSelection></ProductSelection>
         </div>
+        <div>
+          <input className="NameCliente"/>
+        </div>
       </div>
       </div>
   );
