@@ -17,38 +17,52 @@ const ProductSelection = () => {
     emptyCart,
   } = useCart();
 
-  const [name, clientName] = useState([""]);
-  const [table, tableNum] = useState([]);
+  const usersCollectionRef = collection (db, "ordenes")
+  const [name, setClientName] = useState([""]);
+  const [table, setTableNum] = useState([""]);
   const [coment, setComent] = useState([""]);
+ // const [product, items] = useState([""]);
 
-
-  const insertOrder = (items, name, coment, table) => {
+  const insertOrder = () => {
+    addDoc(usersCollectionRef,{
+      nameClient:name, numberClient:table, comentOrder:coment, product:items})
+    alert("Tu pedido ha sido enviado");
+    setClientName("");
+    setTableNum("");
+    setComent("");
+  };
+  /*const insertOrder = (name, table, coment, items) => {
     addDoc(collection(db, "ordenes"), { name, table, coment, items });
     alert("Tu pedido ha sido enviado");
-  };
+    setClientName("");
+    setTableNum("");
+    setComent("");
+  };*/
+
 
   return (
     <div className="containerOrder">
       <div>
         <h1 className="text-center"> ORDEN </h1>
-        <br />
+        <br />  
         <input
           className="inputOrder"
           type="text"
           placeholder="CLIENTE"
+          value={name}
           onChange={(event) => {
-            clientName(event.target.value);
-          }}
-        />
+            setClientName(event.target.value);
+          }}/>
         <input
           className="inputOrder"
           type="number"
           placeholder="MESA"
+          value={table}
           onChange={(event) => {
-            tableNum(event.target.value);
-          }}
-        />
+            setTableNum(event.target.value);
+          }}/>
       </div>
+
       <section className="container2">
         <div className="row justify-content-center">
           <div>
@@ -62,28 +76,20 @@ const ProductSelection = () => {
                         className="btn-reduce-product"
                         onClick={() =>
                           updateItemQuantity(item.id, item.quantity - 1)
-                        }
-                      >
-                        {" "}
-                        -{" "}
-                      </button>
+                        }> - </button>
                       <div className="quantity-product"> {item.quantity} </div>
                       <button
                         className="btn-add-product"
                         onClick={() =>
                           updateItemQuantity(item.id, item.quantity + 1)
-                        }
-                      >
-                        {" "}
-                        +{" "}
-                      </button>
+                        }> + </button>
                     </div>
                     <img
                       className="image-remove-all"
                       src="https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/tacho-de-basura.png?alt=media&token=4cd950bd-0db1-4e95-84c5-3d91ede0a46f"
                       alt="img-tacho"
-                      onClick={() => removeItem(item.id)}
-                    ></img>
+                      onClick={() => removeItem(item.id)}>
+                    </img>
                   </div>
                 </div>
               );
@@ -98,20 +104,19 @@ const ProductSelection = () => {
             <textarea
               className="commentsStyle"
               placeholder="Escribe aquí un comentario"
+              value={coment}
               onChange={(event) => {
-                setComent(event.target.value);
-              }}>
+                setComent(event.target.value); }}>
             </textarea>
           </div>
 
           <div>
             <button
               className="sentButton"
-              onClick={() => insertOrder(name, table, coment, items)}
-            >
-              ENVIAR
+              onClick={() => insertOrder(name, table, coment, items,emptyCart() )}>ENVIAR
             </button>
           </div>
+
         </div>
       </section>
     </div>
