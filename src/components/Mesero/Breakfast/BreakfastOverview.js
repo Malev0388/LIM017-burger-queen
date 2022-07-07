@@ -5,7 +5,6 @@ import { db } from "../../../firebase/connection.js";
 import BreakfastProduct from "./BreakfastProduct.js";
 import ProductSelection from "./ProductSelection.js";
 import { Link } from "react-router-dom";
-
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const BreakfastOverview = () => {
 
@@ -59,8 +58,10 @@ export const BreakfastOverview = () => {
           })}
         </div>
 
-        <div className="car">
+        <div className="containerOrder">
+          <div className="subContainerOrder">
           <ProductSelection></ProductSelection>
+          </div>
         </div>
       </div>
     </div>
