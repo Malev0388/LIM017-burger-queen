@@ -5,6 +5,7 @@ import { db } from "../../../firebase/connection.js";
 import MenuProduct from "./MenuProducts.js";
 import ProductSelection from "./ProductSelection.js";
 import { Link } from "react-router-dom";
+import { useCart } from 'react-use-cart';
 
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const MenuOverview = () => {
@@ -19,8 +20,22 @@ export const MenuOverview = () => {
   useEffect(() => {
     getBreakFast();
   }, []);
+  const MenuProduct= (props) => {
+    const { addItem } = useCart();
+
   return (
+    
     <div>
+      <div className='container-menu' >
+      <div className='item-product' onClick={() => addItem(props.item)} key={props.id}>
+        <img src={props.image} className='img-menu' alt="img-menu"/>
+
+        <div className="container-text-menu">
+          <p className='name-product'>{props.product} </p>
+          <p className='precio'>precio:s/.{props.price} </p>    
+        </div>  
+          </div>
+      </div>
       <div className="mesero">
         <header className="header">
           <img
