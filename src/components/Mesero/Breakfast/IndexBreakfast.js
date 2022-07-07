@@ -1,15 +1,14 @@
-/*import ViewMesero from './ViewMesero.js'*/
-import MenuOverview from "./MenuOverview.js";
 //import BreakfastOverview from "./Breakfast/BreakfastOverview.js";
+import BreakfastOverview from "../Breakfast/BreakfastOverview.js";
 import { CartProvider } from "react-use-cart";
 
-const IndexDos =() => {
+const IndexBreakfast =() => {
   return (
     <div>
       <CartProvider>
-        <MenuOverview />
+        <BreakfastOverview />
       </CartProvider>
     </div>
   );
 }
-export default IndexDos;
+export default IndexBreakfast;

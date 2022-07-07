@@ -6,7 +6,6 @@ import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
 import ProductSelection from "../Breakfast/ProductSelection.js";
 import { Link } from "react-router-dom";
 
-
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const MenuOverview = () =>{
 
@@ -31,8 +30,8 @@ export const MenuOverview = () =>{
       </header>
 
       <ul>
-        <li><Link className="button-desayuno" to="/mesero">DESAYUNO</Link></li>
-        <li><Link className="button-menu" to="/menu">MENÚ</Link></li>
+        <li><Link className="button-desayuno" to="/mesero" >DESAYUNO</Link></li>
+        <li><Link className="button-menu" to="/menu" >MENÚ</Link></li>
         <li><Link className="button-pedidos" to="/pedidos">PEDIDOS LISTOS</Link></li>
       </ul>
     </div>   
