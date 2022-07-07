@@ -5,9 +5,9 @@ import { db } from "../../../firebase/connection.js";
 import BreakfastProduct from "./BreakfastProduct.js";
 import ProductSelection from "./ProductSelection.js";
 import { Link } from "react-router-dom";
-
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const BreakfastOverview = () => {
+
   const [total, setTotal] = useState([]);
   const getBreakFast = async () => {
     const product = await getDocs(
@@ -32,22 +32,17 @@ export const BreakfastOverview = () => {
 
         <ul>
           <li>
-            <Link className="button-desayuno" to="/mesero">
-              DESAYUNO
-            </Link>
+            <Link className="button-desayuno" to="/mesero"> DESAYUNO </Link> 
           </li>
           <li>
-            <Link className="button-menu" to="/menu">
-              MENÚ
-            </Link>
+            <Link className="button-menu" to="/menu" > MENÚ </Link>
           </li>
           <li>
-            <Link className="button-pedidos" to="/pedidos">
-              PEDIDOS LISTOS
-            </Link>
+            <Link className="button-pedidos" to="/pedidos"> PEDIDOS LISTOS </Link>
           </li>
         </ul>
       </div>
+
       <div className="container-mesero">
         <div className="">
           {total.map((item) => {
@@ -63,8 +58,10 @@ export const BreakfastOverview = () => {
           })}
         </div>
 
-        <div className="car" id="page2">
+        <div className="containerOrder">
+          <div className="subContainerOrder">
           <ProductSelection></ProductSelection>
+          </div>
         </div>
       </div>
     </div>

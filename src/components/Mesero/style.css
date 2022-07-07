@@ -56,6 +56,7 @@ body{
 .container-mesero{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
 
 }
 .item-product{
@@ -118,11 +119,11 @@ ul {
     font-family: 'Kadwa', serif;
     font-size: 25px;
     font-weight: bold;
-    float: left;
-    margin-top: 10px;
+   /* float: left;*/
+    margin-top: 15px;
   }
 .inputOrder{
-    margin: 30px 120px 15px -87px;
+    /*margin: 30px 120px 15px -87px;*/
     background-color: #F2BB6B;
     border-color: black;
     border-style: solid;
@@ -132,6 +133,7 @@ ul {
     font-size: 12px;
     font-weight: bold;
     height: 32px;
+    margin: 0px 17px 3px 0px;
 }
 .inputOrder::placeholder{
     color: black;
@@ -149,6 +151,8 @@ ul {
     justify-content: space-around;
     align-items: center;
     margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
     height: 55px;
     width: 400px;
 }
@@ -235,7 +239,7 @@ textarea{
     background-color: #F2BB6B;     
     font-family: 'Kadwa', serif;
     font-weight: bold;
-    border-radius: 0%;
+    margin: 10px 0px 15px 0px;
     font-size: 20px;
     border: black;
     border-style: solid;
@@ -245,9 +249,13 @@ textarea{
 }
 .containerOrder{
     background-color: #F2BB6B;
-    
+    margin-right: 40px;
+    text-align: center;
 }
 
+.subContainerOrder{
+    margin:0px auto;
+}
 
 
 

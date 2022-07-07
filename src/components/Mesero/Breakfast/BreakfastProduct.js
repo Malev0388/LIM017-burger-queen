@@ -6,7 +6,6 @@ const BreakfastProduct= (props) => {
   const { addItem } = useCart();
 
     return( 
-      
       <div className='container-menu' onClick={() => addItem(props.item)}>
       <div className='item-product' key={props.id}>
         <img src={props.image} className='img-menu' alt="img-menu"/>
