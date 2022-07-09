@@ -3,6 +3,7 @@ import { useCart } from "react-use-cart";
 import { db } from "../../../firebase/connection.js";
 import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
+import Swal from 'sweetalert2'
 
 /*----------------SELECCION DE PRODUCTOS------------*/
 const ProductSelection = () => {
@@ -26,22 +27,20 @@ const ProductSelection = () => {
   const insertOrder = () => {
     addDoc(usersCollectionRef,{
       nameClient:name, numberClient:table, comentOrder:coment, product:items})
-    alert("Tu pedido ha sido enviado");
     setClientName("");
     setTableNum("");
     setComent("");
+    Swal.fire({
+      position: 'top-center',
+      icon: 'success',
+      title: 'Pedido enviado',
+      showConfirmButton: false,
+      timer: 1500
+    }) 
   };
-  /*const insertOrder = (name, table, coment, items) => {
-    addDoc(collection(db, "ordenes"), { name, table, coment, items });
-    alert("Tu pedido ha sido enviado");
-    setClientName("");
-    setTableNum("");
-    setComent("");
-  };*/
-
-
+ 
   return (
-    <div className="containerOrder">
+    <div className="">
       <div>
         <h1 className="text-center"> ORDEN </h1>
         <br />  
@@ -113,7 +112,8 @@ const ProductSelection = () => {
           <div>
             <button
               className="sentButton"
-              onClick={() => insertOrder(name, table, coment, items,emptyCart() )}>ENVIAR
+              onClick={() => insertOrder(name, table, coment, items,emptyCart())
+              }>ENVIAR
             </button>
           </div>
 
