@@ -16,7 +16,7 @@ const MenuProduct= (props) => {
           <p className='precio'>precio:s/.{props.price} </p>    
         </div>  
           </div>
-      </div>   
+      </div>    
       
     );
 }

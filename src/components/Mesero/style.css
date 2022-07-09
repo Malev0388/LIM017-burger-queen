@@ -122,7 +122,6 @@ ul {
     margin-top: 10px;
   }
 .inputOrder{
-    margin: 30px 120px 15px -87px;
     background-color: #F2BB6B;
     border-color: black;
     border-style: solid;
@@ -208,6 +207,7 @@ ul {
     flex-direction: row;
     align-items: center;
     justify-content: inherit;
+    width: 500px;
 }
 /*.commentsSentStyle{
     display: flex;
@@ -245,11 +245,30 @@ textarea{
 }
 .containerOrder{
     background-color: #F2BB6B;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:450px;
+
     
 }
-
-
-
-
-
-
+.car{
+display: flex;
+flex-direction: column
+}
+.input-car{
+    display: flex;
+    flex-direction: row;
+}
+.product-select{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 35px;
+    
+}
+.firstContainerCar{
+    display: flex;
+    justify-content: flex-start;
+}

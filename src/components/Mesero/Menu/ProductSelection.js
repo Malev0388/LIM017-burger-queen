@@ -20,7 +20,6 @@ const ProductSelection = () => {
   const [table, tableNum] = useState([]);
   const [coment, setComent] = useState([""]);
 
-
   const insertOrder = (items, name, coment, table) => {
     addDoc(collection(db, "ordenes"), { name, table, coment, items });
     alert("Tu pedido ha sido enviado");
@@ -99,7 +98,8 @@ const ProductSelection = () => {
               placeholder="Escribe aquí un comentario"
               onChange={(event) => {
                 setComent(event.target.value);
-              }}>
+              }}
+            >
               {" "}
             </textarea>
           </div>

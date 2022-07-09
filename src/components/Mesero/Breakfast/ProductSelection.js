@@ -17,44 +17,64 @@ const ProductSelection = () => {
     emptyCart,
   } = useCart();
 
-  const [name, clientName] = useState([""]);
-  const [table, tableNum] = useState([]);
+  const usersCollectionRef = collection(db, "ordenes");
+  const [name, setClientName] = useState([""]);
+  const [table, setTableNum] = useState([""]);
   const [coment, setComent] = useState([""]);
+  // const [product, items] = useState([""]);
 
-
-  const insertOrder = (items, name, coment, table) => {
+  const insertOrder = () => {
+    addDoc(usersCollectionRef, {
+      nameClient: name,
+      numberClient: table,
+      comentOrder: coment,
+      product: items,
+    });
+    alert("Tu pedido ha sido enviado");
+    setClientName("");
+    setTableNum("");
+    setComent("");
+  };
+  /*const insertOrder = (name, table, coment, items) => {
     addDoc(collection(db, "ordenes"), { name, table, coment, items });
     alert("Tu pedido ha sido enviado");
-  };
+    setClientName("");
+    setTableNum("");
+    setComent("");
+  };*/
 
   return (
     <div className="containerOrder">
-      <div>
+      <div className="firstContainerCar">
         <h1 className="text-center"> ORDEN </h1>
-        <br />
-        <input
-          className="inputOrder"
-          type="text"
-          placeholder="CLIENTE"
-          onChange={(event) => {
-            clientName(event.target.value);
-          }}
-        />
-        <input
-          className="inputOrder"
-          type="number"
-          placeholder="MESA"
-          onChange={(event) => {
-            tableNum(event.target.value);
-          }}
-        />
+        <div className="imputCar">
+          <input
+            className="inputOrder"
+            type="text"
+            placeholder="CLIENTE"
+            value={name}
+            onChange={(event) => {
+              setClientName(event.target.value);
+            }}
+          />
+          <input
+            className="inputOrder"
+            type="number"
+            placeholder="MESA"
+            value={table}
+            onChange={(event) => {
+              setTableNum(event.target.value);
+            }}
+          />
+        </div>
       </div>
+
       <section className="container2">
         <div className="row justify-content-center">
           <div>
             {items.map((item, id) => {
               return (
-                <div key={id}>
+                <div className="product-select" key={id}>
                   <div className="container-product-selection">
                     <div> {item.product} </div>
                     <div className="buttons-options-products">
@@ -98,16 +118,19 @@ const ProductSelection = () => {
             <textarea
               className="commentsStyle"
               placeholder="Escribe aquí un comentario"
+              value={coment}
               onChange={(event) => {
                 setComent(event.target.value);
-              }}>
-            </textarea>
+              }}
+            ></textarea>
           </div>
 
           <div>
             <button
               className="sentButton"
-              onClick={() => insertOrder(name, table, coment, items)}
+              onClick={() =>
+                insertOrder(name, table, coment, items, emptyCart())
+              }
             >
               ENVIAR
             </button>
