@@ -7,7 +7,6 @@ const MenuProduct= (props) => {
 
     return( 
       
-      <div className='container-menu' >
       <div className='item-product' onClick={() => addItem(props.item)} key={props.id}>
         <img src={props.image} className='img-menu' alt="img-menu"/>
 
@@ -15,8 +14,7 @@ const MenuProduct= (props) => {
           <p className='name-product'>{props.product} </p>
           <p className='precio'>precio:s/.{props.price} </p>    
         </div>  
-          </div>
-      </div>    
+          </div> 
       
     );
 }

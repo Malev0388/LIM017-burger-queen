@@ -48,8 +48,8 @@ const ProductSelection = () => {
         />
       </div>
       <section className="container2">
-        <div className="row justify-content-center">
-          <div>
+        <div className="justify-content-center">
+          <div className="goup-product-selection">
             {items.map((item, id) => {
               return (
                 <div key={id}>
@@ -105,7 +105,6 @@ const ProductSelection = () => {
           </div>
 
           <div>
-            <h3>total:{cartTotal} </h3>
             <button
               className="sentButton"
               onClick={() => insertOrder(name, table, coment, items)}

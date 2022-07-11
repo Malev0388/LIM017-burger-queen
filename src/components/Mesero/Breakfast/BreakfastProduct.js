@@ -6,8 +6,7 @@ const BreakfastProduct = (props) => {
   const { addItem } = useCart();
 
   return (
-    <div className="container-menu" onClick={() => addItem(props.item)}>
-      <div className="item-product" key={props.id}>
+      <div className="item-product"  onClick={() => addItem(props.item)} key={props.id}>
         <img src={props.image} className="img-menu" alt="img-menu" />
 
         <div className="container-text-menu">
@@ -15,7 +14,6 @@ const BreakfastProduct = (props) => {
           <p className="precio">precio:s/.{props.price} </p>
         </div>
       </div>
-    </div>
   );
 };
 export default BreakfastProduct;
