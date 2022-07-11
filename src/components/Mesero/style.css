@@ -268,8 +268,12 @@ textarea {
 
 .containerOrder {
     background-color: #F2BB6B;
-    margin-right: 40px;
+    margin-right: 64px;
+    margin-left: 40px;
+    margin-top: 30px;
     text-align: center;
+    border-radius: 40px;
+    box-shadow: 2px 2px 10px;
 }
 
 .subContainerOrder {
@@ -278,14 +282,14 @@ textarea {
 .subContainerList {
     height: 359px;
     width: 388px;
-    margin-left: 50px;
-    margin-top: 30px;
+    margin-left: 114px;
+    margin-top: 76px;
     overflow-y: scroll;
     padding-right: 20px;
 }
 .goup-product-selection{
     height: 175px;
-    width: 433px;
-    overflow-y: scroll;
-    margin-left: 32px;
+    width: 436px;
+    overflow: auto;
+    margin-left: 25px;
 }

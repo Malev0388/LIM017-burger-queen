@@ -66,8 +66,8 @@ const ProductSelection = () => {
       </div>
 
       <section className="container2">
-        <div className="row justify-content-center">
-          <div>
+        <div className="justify-content-center">
+          <div className="goup-product-selection">
             {items.map((item, id) => {
               return (
                 <div className="product-select" key={id}>

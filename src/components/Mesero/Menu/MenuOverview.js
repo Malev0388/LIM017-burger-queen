@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import "../style.css";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../firebase/connection.js";
-import MenuProduct from "./MenuProducts.js";
-import ProductSelection from "./ProductSelection.js";
+import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
+import ProductSelection from "../Breakfast/ProductSelection.js";
 import { Link } from "react-router-dom";
 /*----------------VISTA GENERAL DESAYUNO------------*/
 export const MenuOverview = () =>{
@@ -43,16 +43,16 @@ export const MenuOverview = () =>{
       </div>
 
       <div className="container-mesero">
-        <div className="">
+        <div className="subContainerList">
           {total.map((item) => {
             return (
-              <MenuProduct
+              <BreakfastProduct
                 image={item.image}
                 product={item.product}
                 price={item.price}
                 key={item.id}
                 item={item}
-              ></MenuProduct>
+              ></BreakfastProduct>
             );
           })}
         </div>
