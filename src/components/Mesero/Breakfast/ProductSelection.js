@@ -124,7 +124,7 @@ const ProductSelection = () => {
           <div>
             <button
               className="sentButton"
-              onClick={() => insertOrder(name, table, coment, items,emptyCart())
+              onClick={() => insertOrder(name, table, coment, items,emptyCart())  
               }>ENVIAR
             </button>
           </div>
