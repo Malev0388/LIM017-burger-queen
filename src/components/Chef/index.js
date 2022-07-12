@@ -5,7 +5,7 @@ import { db } from "../../firebase/connection.js";
 
 export const Chef = () => {
 
-  const [users, setTotal] = useState([]);
+  /*const [users, setTotal] = useState([]);
   const usersCollectionRef = collection(db, "ordenes");
   const getUsers = async () => {
     const data = await getDocs(usersCollectionRef);
@@ -44,8 +44,8 @@ export const Chef = () => {
      
     </div>
   );
-};
-
+};*/
+}
 
 export default Chef;
 
