@@ -18,15 +18,15 @@ const ProductSelection = () => {
     emptyCart,
   } = useCart();
 
-  const usersCollectionRef = collection (db, "ordenes")
+  const usersCollectionRef = collection(db, "ordenes");
   const [name, setClientName] = useState([""]);
   const [table, setTableNum] = useState([""]);
   const [coment, setComent] = useState([""]);
- // const [product, items] = useState([""]);
+  // const [product, items] = useState([""]);
 
   const insertOrder = () => {
     addDoc(usersCollectionRef,{
-      nameClient:name, numberClient:table, comentOrder:coment, product:items})
+      nameClient:name, numberClient:table, comentOrder:coment, productCar:items})
     setClientName("");
     setTableNum("");
     setComent("");
@@ -43,31 +43,34 @@ const ProductSelection = () => {
     <div className="">
       <div>
         <h1 className="text-center"> ORDEN </h1>
-        <br />  
-        <input
-          className="inputOrder"
-          type="text"
-          placeholder="CLIENTE"
-          value={name}
-          onChange={(event) => {
-            setClientName(event.target.value);
-          }}/>
-        <input
-          className="inputOrder"
-          type="number"
-          placeholder="MESA"
-          value={table}
-          onChange={(event) => {
-            setTableNum(event.target.value);
-          }}/>
+        <div className="imputCar">
+          <input
+            className="inputOrder"
+            type="text"
+            placeholder="CLIENTE"
+            value={name}
+            onChange={(event) => {
+              setClientName(event.target.value);
+            }}
+          />
+          <input
+            className="inputOrder"
+            type="number"
+            placeholder="MESA"
+            value={table}
+            onChange={(event) => {
+              setTableNum(event.target.value);
+            }}
+          />
+        </div>
       </div>
 
       <section className="container2">
-        <div className="row justify-content-center">
-          <div>
+        <div className="justify-content-center">
+          <div className="goup-product-selection">
             {items.map((item, id) => {
               return (
-                <div key={id}>
+                <div className="product-select" key={id}>
                   <div className="container-product-selection">
                     <div> {item.product} </div>
                     <div className="buttons-options-products">
@@ -75,20 +78,28 @@ const ProductSelection = () => {
                         className="btn-reduce-product"
                         onClick={() =>
                           updateItemQuantity(item.id, item.quantity - 1)
-                        }> - </button>
+                        }
+                      >
+                        {" "}
+                        -{" "}
+                      </button>
                       <div className="quantity-product"> {item.quantity} </div>
                       <button
                         className="btn-add-product"
                         onClick={() =>
                           updateItemQuantity(item.id, item.quantity + 1)
-                        }> + </button>
+                        }
+                      >
+                        {" "}
+                        +{" "}
+                      </button>
                     </div>
                     <img
                       className="image-remove-all"
                       src="https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/tacho-de-basura.png?alt=media&token=4cd950bd-0db1-4e95-84c5-3d91ede0a46f"
                       alt="img-tacho"
-                      onClick={() => removeItem(item.id)}>
-                    </img>
+                      onClick={() => removeItem(item.id)}
+                    ></img>
                   </div>
                 </div>
               );
@@ -105,8 +116,9 @@ const ProductSelection = () => {
               placeholder="Escribe aquí un comentario"
               value={coment}
               onChange={(event) => {
-                setComent(event.target.value); }}>
-            </textarea>
+                setComent(event.target.value);
+              }}
+            ></textarea>
           </div>
 
           <div>
@@ -116,7 +128,6 @@ const ProductSelection = () => {
               }>ENVIAR
             </button>
           </div>
-
         </div>
       </section>
     </div>
