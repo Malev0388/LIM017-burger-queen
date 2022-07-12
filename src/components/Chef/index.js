@@ -28,7 +28,7 @@ export const Chef = () => {
           />
       </header>
       <ul >
-        <text className = "stateOrdersTittle">ESTADO DE PEDIDOS</text>
+        <text className = "stateOrdersTitle">ESTADO DE PEDIDOS</text>
           <div className="stateOrders">
             <text className = "redBall">🔴 En proceso</text>
             <text className = "greenBall">🟢 Pediente</text>
@@ -45,13 +45,16 @@ export const Chef = () => {
               {user.productCar.map ((product, id) => {
                 return (
                   <div className="list-order-chef" key={id}>
-                    <h1 className="product-order">{product.product}</h1>
                     <h1 className="quantify-order">({product.quantity})</h1>
+                    <h1 className="product-order">{product.product}</h1>                    
                   </div>
                 )
               })}     
             </div>
-            <h1>comentario: {user.comentOrder} </h1>
+            <div className="list-comment-chef">
+            <h1 className="comments-title-style">COMENTARIO:<br></br></h1>
+            <text className="comments-txt-style">{user.comentOrder}</text>
+            </div>
           </div>
           //
         );
