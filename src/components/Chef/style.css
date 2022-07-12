@@ -1,0 +1,22 @@
+.stateOrdersTittle{
+    font-family: 'Kadwa', serif;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    margin-right: 20px;
+}
+.redBall{
+    font-family: 'Kadwa', serif;
+    color: black;
+    font-size: 18px; 
+    padding: 0px 20px;
+}
+.greenBall{
+    font-family: 'Kadwa', serif;
+    color: black;
+    font-size: 18px; 
+    padding: 0px 20px;
+}
+.stateOrders{
+    
+}
