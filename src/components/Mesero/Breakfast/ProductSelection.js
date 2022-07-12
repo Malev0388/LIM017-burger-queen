@@ -26,7 +26,7 @@ const ProductSelection = () => {
 
   const insertOrder = () => {
     addDoc(usersCollectionRef,{
-      nameClient:name, numberClient:table, comentOrder:coment, product:items})
+      nameClient:name, numberClient:table, comentOrder:coment, productCar:items})
     setClientName("");
     setTableNum("");
     setComent("");
