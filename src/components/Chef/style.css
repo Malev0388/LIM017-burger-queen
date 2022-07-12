@@ -17,6 +17,25 @@
     font-size: 18px; 
     padding: 0px 20px;
 }
-.stateOrders{
+.container-order-chef{
+    height:350px;
+    width:280px;
+    border: 3px solid #F35F44;
+    border-radius: 40px;
+    margin-left: 40px;
+}
+.number-table{
+font-size: 18px;
+border-bottom: 3px solid #F35F44;
+padding: 15px 0px 1px 17px;
+}
+.list-order-chef{
+display:flex;
+}
+.product-order{
+    font-size: 20px;
     
+}.quantify-order{
+    font-size: 20px;
+
 }
