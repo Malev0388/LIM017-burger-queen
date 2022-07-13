@@ -136,7 +136,8 @@ li a:hover:not(.active) {
     font-size: 12px;
     font-weight: bold;
     height: 32px;
-    margin: 0px 17px 3px 0px;
+    margin: 0px -6px 3px 13px;
+    padding-left: 20px;
 }
 
 .inputOrder::placeholder {
@@ -253,7 +254,7 @@ textarea {
     resize: none;
 }
 
-.sentButton {
+.sendButton {
     background-color: #F2BB6B;
     font-family: 'Kadwa', serif;
     font-weight: bold;
