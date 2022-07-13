@@ -123,7 +123,7 @@ const ProductSelection = () => {
 
           <div>
             <button
-              className="sentButton"
+              className="sendButton"
               onClick={() => insertOrder(name, table, coment, items,emptyCart())  
               }>ENVIAR
             </button>
