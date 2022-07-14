@@ -8,7 +8,7 @@ test('renders learn react link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 */
-test('buscamos el input por su plceholder', () => {
+test('buscamos el input por su placeholder', () => {
   render(<ProductSelection />);
   
   const placeholderClient = screen.getByPlaceholderText(/CLIENTE/i)
@@ -19,11 +19,10 @@ test('buscamos el input por su plceholder', () => {
 
 });
 
-test('btn', () => {
+test('buscamos el boton que envia la informacion', () => {
   render(<ProductSelection />);
   
   const btn = screen.getByText(/ENVIAR/i)
-
   expect(btn).toBeInTheDocument()
 });
 
