@@ -47,6 +47,7 @@ const ProductSelection = () => {
           <input
             className="inputOrder"
             type="text"
+            id="name"
             placeholder="CLIENTE"
             value={name}
             onChange={(event) => {
