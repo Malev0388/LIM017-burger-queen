@@ -1,17 +1,13 @@
-//import React from "react";
 import { useCart } from "react-use-cart";
 import { db } from "../../../firebase/connection.js";
 import { useState, useEffect } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import Swal from 'sweetalert2'
 
-/*----------------SELECCION DE PRODUCTOS------------*/
+/*----------------SELECCION DE PRODUCTOS (se muestran en el carrito)------------*/
 const ProductSelection = () => {
   const {
-    isEmpty,
-    totalUniqueItems,
     items,
-    totalItems,
     cartTotal,
     updateItemQuantity,
     removeItem,
@@ -22,7 +18,6 @@ const ProductSelection = () => {
   const [name, setClientName] = useState([""]);
   const [table, setTableNum] = useState([""]);
   const [coment, setComent] = useState([""]);
-  // const [product, items] = useState([""]);
 
   const insertOrder = () => {
     addDoc(usersCollectionRef,{
@@ -40,14 +35,13 @@ const ProductSelection = () => {
   };
  
   return (
-    <div className="">
+    <div>
       <div>
-        <h1 className="text-center"> ORDEN </h1>
-        <div className="imputCar">
+        <h1 className="textCenter"> ORDEN </h1>
+        <div>
           <input
             className="inputOrder"
             type="text"
-            id="name"
             placeholder="CLIENTE"
             value={name}
             onChange={(event) => {
@@ -66,37 +60,26 @@ const ProductSelection = () => {
         </div>
       </div>
 
-      <section className="container2">
-        <div className="justify-content-center">
-          <div className="goup-product-selection">
+      <section className="containerCartOrder">
+        <div>
+          <div className="goupProductSelection">
             {items.map((item, id) => {
               return (
-                <div className="product-select" key={id}>
-                  <div className="container-product-selection">
+                <div  key={id}>
+                  <div className="containerProductSelection">
                     <div> {item.product} </div>
-                    <div className="buttons-options-products">
-                      <button
-                        className="btn-reduce-product"
+                    <div className="buttonsOptionsProducts">
+                      <button className="buttonsReduceProduct"
                         onClick={() =>
-                          updateItemQuantity(item.id, item.quantity - 1)
-                        }
-                      >
-                        {" "}
-                        -{" "}
-                      </button>
-                      <div className="quantity-product"> {item.quantity} </div>
-                      <button
-                        className="btn-add-product"
+                         updateItemQuantity(item.id, item.quantity - 1)} > - </button>
+                      <div className="quantityProduct"> {item.quantity} </div>
+
+                      <button className="buttonsAddProduct"
                         onClick={() =>
-                          updateItemQuantity(item.id, item.quantity + 1)
-                        }
-                      >
-                        {" "}
-                        +{" "}
-                      </button>
+                         updateItemQuantity(item.id, item.quantity + 1)}> + </button>
                     </div>
                     <img
-                      className="image-remove-all"
+                      className="imageRemoveAll"
                       src="https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/tacho-de-basura.png?alt=media&token=4cd950bd-0db1-4e95-84c5-3d91ede0a46f"
                       alt="img-tacho"
                       onClick={() => removeItem(item.id)}
@@ -111,7 +94,7 @@ const ProductSelection = () => {
             <h3 className="totalPrice">Total: </h3>
             <h3 className="priceStyle"> S/. {cartTotal} </h3>
           </div>
-          <div className="commentsSentStyle">
+          <div>
             <textarea
               className="commentsStyle"
               placeholder="Escribe aquí un comentario"
