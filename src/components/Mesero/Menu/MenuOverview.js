@@ -5,46 +5,46 @@ import { db } from "../../../firebase/connection.js";
 import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
 import ProductSelection from "../Breakfast/ProductSelection.js";
 import { Link } from "react-router-dom";
-/*----------------VISTA GENERAL DESAYUNO------------*/
+
+/*---------------- VISTA GENERAL ALMUERZO ----------------*/
 export const MenuOverview = () =>{
 
-  const [total, setTotal] = useState([]);
+  const [productTotal, setTotal] = useState([]);
   const getLunch = async () => {
     const productLunch = await getDocs(query(collection(db,'menu'), where("type", "==", "lunch")))
     setTotal(productLunch.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
-
   useEffect(() => {
     getLunch();
   }, []);
   return (
-    <div>
-      <div className="mesero">
+     <div>
+      <div>
         <header className="header">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/logo-bq.PNG?alt=media&token=ff5fc092-8e35-45fc-ab81-6b4a4a7efa45"
-            alt="logo-bq"
-            className="logo-bq"
+            alt="logoBurgerQueen"
+            className="logoBurgerQueen"
           />
         </header>
 
         <ul>
           <li>
-            <Link className="button-desayuno" to="/mesero"> DESAYUNO </Link> 
+            <Link className="buttonBreakfast" to="/mesero">DESAYUNO</Link>
           </li>
           <li>
-            <Link className="button-menu" to="/menu" > MENÚ </Link>
+            <Link className="buttonMenu" to="/menu">MENÚ</Link> 
           </li>
           <li>
-            <Link className="button-pedidos" to="/pedidos"> PEDIDOS LISTOS </Link>
+            <Link className="buttonOrders" to="/pedidos">PEDIDOS LISTOS</Link>
           </li>
         </ul>
       </div>
 
-      <div className="container-mesero">
+      <div className="containerWaiter">
         <div className="subContainerList">
-          {total.map((item) => {
+          {productTotal.map((item) => {
             return (
               <BreakfastProduct
                 image={item.image}
@@ -59,13 +59,12 @@ export const MenuOverview = () =>{
 
         <div className="containerOrder">
           <div className="subContainerOrder">
-          <ProductSelection></ProductSelection>
+            <ProductSelection></ProductSelection>
           </div>
         </div>
       </div>
     </div>
   );
 };
-
 export default MenuOverview;
 

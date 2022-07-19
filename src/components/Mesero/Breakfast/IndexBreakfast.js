@@ -1,4 +1,3 @@
-//import BreakfastOverview from "./Breakfast/BreakfastOverview.js";
 import BreakfastOverview from "../Breakfast/BreakfastOverview.js";
 import { CartProvider } from "react-use-cart";
 

@@ -1,13 +1,26 @@
-import { render, screen } from '@testing-library/react';
+/*import IndexBreakfast from '../components/Mesero/Breakfast/IndexBreakfast.js'
 import ProductSelection from '../components/Mesero/Breakfast/ProductSelection.js'
 
-/*
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Mesero/i);
-  expect(linkElement).toBeInTheDocument();
-});
-*/
+describe('[components] - Cart', () => {
+  const setup = () => {
+    return (
+      <IndexBreakfast>
+        <ProductSelection />
+      </IndexBreakfast>
+    );
+  };
+  test('should render correctly', () => {
+    const view = setup();
+    expect(view).toMatchSnapshot();
+  });
+});*/
+
+
+
+import {render, screen } from '@testing-library/react';
+import ProductSelection from '../components/Mesero/Breakfast/ProductSelection.js'
+
+
 test('buscamos el input por su placeholder', () => {
   render(<ProductSelection />);
   
@@ -21,9 +34,9 @@ test('buscamos el input por su placeholder', () => {
 
 test('buscamos el boton que envia la informacion', () => {
   render(<ProductSelection />);
-  
   const btn = screen.getByText(/ENVIAR/i)
   expect(btn).toBeInTheDocument()
 });
+
 
 
