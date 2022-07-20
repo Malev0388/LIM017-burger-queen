@@ -1,6 +1,6 @@
 import { useCart } from "react-use-cart";
 import { db } from "../../../firebase/connection.js";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import Swal from 'sweetalert2'
 
@@ -22,16 +22,17 @@ const ProductSelection = () => {
   const insertOrder = () => {
     addDoc(usersCollectionRef,{
       nameClient:name, numberClient:table, comentOrder:coment, productCar:items})
-    setClientName("");
-    setTableNum("");
-    setComent("");
-    Swal.fire({
-      position: 'top-center',
-      icon: 'success',
-      title: 'Pedido enviado',
-      showConfirmButton: false,
-      timer: 1500
-    }) 
+      setClientName("");
+      setTableNum("");
+      setComent("");
+
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Pedido enviado',
+        showConfirmButton: false,
+        timer: 1500
+      }) 
   };
  
   return (

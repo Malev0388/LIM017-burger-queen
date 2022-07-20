@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 /*----------------VISTA GENERAL DESAYUNO (productos para elegir)------------*/
  const BreakfastOverview = () => {
   const [productTotal, setTotal] = useState([]);
+  
   const getBreakFast = async () => {
     const product = await getDocs(
       query(collection(db, "menu"), where("type", "==", "breakfast"))
