@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
   
   return (
     <div>
-      <div>
+      <div >
         <header className="header">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/burger-queen-d0e74.appspot.com/o/logo-bq.PNG?alt=media&token=ff5fc092-8e35-45fc-ab81-6b4a4a7efa45"

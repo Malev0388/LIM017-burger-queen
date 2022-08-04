@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "../style.css";
+import "./styleOrders.css";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../../firebase/connection.js";
-import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
-import ProductSelection from "../Breakfast/ProductSelection.js";
+//import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
+//import ProductSelection from "../Breakfast/ProductSelection.js";
 import { Link } from "react-router-dom";
 
-/*---------------- VISTA GENERAL ALMUERZO ----------------*/
+/*---------------- VISTA PEDIDOS LISTOS ----------------*/
 export const OrdersReady = () =>{
 
-  const [productTotal, setTotal] = useState([]);
-  const getLunch = async () => {
-    const productLunch = await getDocs(query(collection(db,'menu'), where("type", "==", "lunch")))
-    setTotal(productLunch.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+  const [cookedOrders, setTotal] = useState([]);
+  const deliverOrders = async () => {
+    const orders = await getDocs(query(collection(db,'ordenes'), where("state", "==", 2)))
+    setTotal(orders.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
   useEffect(() => {
-    getLunch();
+    deliverOrders();
   }, []);
+
   return (
      <div>
       <div>
@@ -41,7 +42,40 @@ export const OrdersReady = () =>{
           </li>
         </ul>
       </div>
-      <h1>hola</h1>
+
+       <div className="containerOrders">
+        {cookedOrders.map((user, id) => {
+            return (
+            <div className="containerOrdersReady" key={id}>
+            
+              <div className="numberTableOrders">
+                Número de mesa: {user.numberClient}
+              </div>
+
+              <div className="listOrdersReady">
+                {user.productCar.map((product, id) => {
+                  return (
+                    <div className="productOrdersReady" key={id}>
+                      <h1 className="quantifyOrders">({product.quantity})</h1>
+                      <h1 className="productOrders">{product.product}</h1>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="listCommentOrdersReady">
+                <h1 className="commentsTitleStyleOrders">
+                  COMENTARIO:<br></br>
+                </h1>
+                <div className="commentsTextStyleOrders">{user.comentOrder}</div>
+              </div>
+              <button className="buttonStyleOrders" > 
+              {user.state ? 'preparando':'pendiente'} 
+              </button>
+            </div> 
+        );
+      })}
+      </div>
 
     </div>
   );

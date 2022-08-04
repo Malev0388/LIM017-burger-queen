@@ -4,9 +4,7 @@ import OrdersReady from "./OrdersReady.js";
 const IndexMenu =() => {
   return (
     <div>
-     
         <OrdersReady />
-  
     </div>
   );
 }
