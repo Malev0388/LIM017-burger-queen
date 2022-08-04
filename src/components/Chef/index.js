@@ -1,20 +1,60 @@
 import React, { useEffect, useState } from "react";
-import {collection, getDocs,} from "firebase/firestore";
+import {collection, getDocs, updateDoc,doc, where, query} from "firebase/firestore";
 import { db } from "../../firebase/connection.js";
 import "./style.css";
+import Swal from 'sweetalert2'
 
 export const Chef = () => {
   const [users, setTotal] = useState([]);
-  const usersCollectionRef = collection(db, "ordenes");
+  const usersCollectionRef = collection(db, "ordenes");  
+
   const getUsers = async () => {
-    const data = await getDocs(usersCollectionRef);
-    setTotal(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+   // const data = await getDocs(usersCollectionRef);
+   const data = await getDocs(query(usersCollectionRef, where("state", "<", 2)));
+    setTotal(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));   
   };
 
   useEffect(() => {
     getUsers();
   }, []);
+  
+/* ------------ Funcion estados del boton ------------ */
+const buttonState = async (user) => {
+  console.log(user)
+  const userState = doc(db, "ordenes", user.id);  
 
+  switch(user.state){
+    case 0 :
+      try{
+        await updateDoc(userState, {
+          state: 1,
+        })
+        getUsers();
+      } catch (error) {
+        console.log(error)
+      }    
+    break;
+    case 1 :
+      try{
+        await updateDoc(userState, {
+          state: 2,
+          
+        })
+        getUsers();
+      } catch (error) {
+        console.log(error)
+      }   
+      Swal.fire({
+        position: 'top-center',
+        icon: 'success',
+        title: 'Pedido enviado a mesero',
+        showConfirmButton: false,
+        timer: 1500
+      }) 
+    break;
+  }
+};
+/* --------------------------------------- */
   return (
     <div>
       <header className="header">
@@ -24,21 +64,20 @@ export const Chef = () => {
           className="logoBurgerQueen"
         />
       </header>
-
       <ul className="containerNavbarChef">
         <text className="stateOrdersTitle">ESTADO DE PEDIDOS</text>
         <div className="stateOrders">
           <text className="redBall">🔴 Pendiente</text>
-          <text className="greenBall">🟢 En proceso</text>
+          <text className="greenBall">🟠 En proceso</text>
         </div>
       </ul>
 
       <div className="containerOrders">
       {users.map((user, id) => {
-
         return (
-            <div className="containerOrderChef" key={id}>
-              <div className="numberTable">
+            <div className={'containerOrderChef '+ (user.state ==0 ? 'containerOrderChef' :user.state ==1 ?'containerOrderChef-preparing': '')}
+            key={id}>
+              <div className={'numberTable '+ (user.state ==0 ? 'numberTable' :user.state ==1 ?'numberTable-preparing': '')}>
                 Número de mesa: {user.numberClient}
               </div>
 
@@ -59,8 +98,10 @@ export const Chef = () => {
                 </h1>
                 <div className="commentsTextStyle">{user.comentOrder}</div>
               </div>
-
-              <button className="buttonEarring">Pendiente</button>
+              <button className={'buttonStyle '+ (user.state ==0 ? 'buttonStyle':user.state ==1 ?'buttonStyle-preparing': '')}
+               onClick={ ()=> buttonState(user)}> 
+              {user.state ? 'preparando':'pendiente'} 
+              </button>
             </div> 
         );
       })}
@@ -70,3 +111,8 @@ export const Chef = () => {
 };
 
 export default Chef;
+
+
+/*
+
+*/

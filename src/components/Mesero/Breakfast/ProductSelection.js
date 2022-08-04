@@ -21,7 +21,8 @@ const ProductSelection = () => {
 
   const insertOrder = () => {
     addDoc(usersCollectionRef,{
-      nameClient:name, numberClient:table, comentOrder:coment, productCar:items})
+      //state:son los estados del producto que enpieza en 0
+      nameClient:name, numberClient:table, comentOrder:coment, productCar:items, state:0 })
       setClientName("");
       setTableNum("");
       setComent("");

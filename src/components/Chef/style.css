@@ -38,25 +38,6 @@
     flex-wrap: wrap;
 }
 
-.containerOrderChef{
-    height: 400px;
-    width: 320px;
-    border: 4px solid #F35F44;
-    border-radius: 15px;
-    margin-left: 52px;
-    margin-bottom: 30px;
-    box-shadow: 2px 2px 10px rgb(0 0 0 / 30%);
-}
-
-.numberTable{
-    font-family: 'Kadwa', serif;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    border-bottom: 3px solid #F35F44;
-    padding: 15px 0px 1px 17px;
-    margin-top: -9px;
-}
 
 .listOrderChef{
     margin-top: 15px;
@@ -107,8 +88,36 @@
     width: 269px;
     height:70px;
 }
+/* ------------ Linea que divide entre pedido y N de mesa ------------ */
+.numberTable{
+    font-family: 'Kadwa', serif;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 3px solid #F35F44;
+    padding: 15px 0px 1px 17px;
+    margin-top: -9px;
+}
+.numberTable-preparing{
+    border-bottom: 3px solid #F2BB6B;
+  }
 
-.buttonEarring{
+/* ------------ Cambia de color el container ------------ */
+.containerOrderChef{
+    height: 400px;
+    width: 320px;
+    border: 4px solid #F35F44;
+    border-radius: 15px;
+    margin-left: 52px;
+    margin-bottom: 30px;
+    box-shadow: 2px 2px 10px rgb(0 0 0 / 30%);
+}
+.containerOrderChef-preparing{
+    border: 4px solid #F2BB6B;
+  }
+
+ /* ------------ Cambio de color el buton ------------ */
+ .buttonStyle{
     background-color: #F35F44;
     font-family: 'Kadwa', serif;
     font-weight: bold;
@@ -120,4 +129,8 @@
     width: 121px;
     height: 38px;
     border-radius: 15px;
-}
+  }
+  
+  .buttonStyle-preparing{
+    background-color: #F2BB6B;
+  }
