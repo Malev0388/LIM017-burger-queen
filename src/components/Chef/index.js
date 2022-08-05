@@ -29,6 +29,7 @@ const buttonState = async (user) => {
         await updateDoc(userState, {
           state: 1,
         })
+        console.log("amarillo")
         getUsers();
       } catch (error) {
         console.log(error)

@@ -1,23 +1,71 @@
 import React, { useEffect, useState } from "react";
 import "./styleOrders.css";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs, query, where,doc,updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase/connection.js";
 //import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
 //import ProductSelection from "../Breakfast/ProductSelection.js";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2'
 
 /*---------------- VISTA PEDIDOS LISTOS ----------------*/
 export const OrdersReady = () =>{
 
   const [cookedOrders, setTotal] = useState([]);
+  const ordersCollections = collection(db, "ordenes");  
+
   const deliverOrders = async () => {
-    const orders = await getDocs(query(collection(db,'ordenes'), where("state", "==", 2)))
+    const orders = await getDocs(query(ordersCollections, where("state" ,">=",2),where("state" ,"<",3)))
     setTotal(orders.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
   };
 
   useEffect(() => {
     deliverOrders();
   }, []);
+
+  /* ------------ Funcion estados del boton ------------ */
+const buttonStates = async (orderReady) => {
+    console.log(orderReady)  
+   const userState = doc(db, "ordenes", orderReady.id); 
+  
+    //
+    switch(orderReady.state){
+      case 2 :
+        try{
+          await updateDoc(userState, {
+            state:3
+          })
+          console.log("red")
+          deliverOrders();
+        } catch (error) {
+          console.log(error)
+        }      
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Pedido entregado a mesa',
+          showConfirmButton: false,
+          timer: 1500
+        })  
+     break;
+    /*  case 3 :
+        try{
+          await updateDoc(userState, {
+            state: 4,   
+          })
+          deliverOrders();
+        } catch (error) {
+          console.log(error)
+        }   
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: 'Pedido enviado a mesero',
+          showConfirmButton: false,
+          timer: 1500
+        }) 
+      break;*/
+    }
+  };
 
   return (
      <div>
@@ -44,16 +92,18 @@ export const OrdersReady = () =>{
       </div>
 
        <div className="containerOrders">
-        {cookedOrders.map((user, id) => {
+        {cookedOrders.map((orderReady, id) => {
             return (
-            <div className="containerOrdersReady" key={id}>
-            
-              <div className="numberTableOrders">
-                Número de mesa: {user.numberClient}
+            <div className={'containerOrdersReady '+ (orderReady.state ==0 ? 'containerOrdersReady':orderReady.state ==3 ?'containerOrdersReady-preparing': '')}
+            key={id}>
+              <div className={'numberTableOrders '+ (orderReady.state ==0 ? 'numberTableOrders':orderReady.state ==3 ?'numberTableOrders-preparing': '')}>
+                Cliente: {orderReady.nameClient} 
+                <br/>
+                Numero de mesa: {orderReady.numberClient}
               </div>
 
               <div className="listOrdersReady">
-                {user.productCar.map((product, id) => {
+                {orderReady.productCar.map((product, id) => {
                   return (
                     <div className="productOrdersReady" key={id}>
                       <h1 className="quantifyOrders">({product.quantity})</h1>
@@ -67,10 +117,11 @@ export const OrdersReady = () =>{
                 <h1 className="commentsTitleStyleOrders">
                   COMENTARIO:<br></br>
                 </h1>
-                <div className="commentsTextStyleOrders">{user.comentOrder}</div>
+                <div className="commentsTextStyleOrders">{orderReady.comentOrder}</div>
               </div>
-              <button className="buttonStyleOrders" > 
-              {user.state ? 'preparando':'pendiente'} 
+              <button className={'buttonStyleOrders '+ (orderReady.state ==0 ? 'buttonStyleOrders':orderReady.state ==3?'buttonStyleOrders-preparing': '')}
+               onClick={ ()=> buttonStates(orderReady)}> 
+              {orderReady.state ? 'entregar':'pendiente'} 
               </button>
             </div> 
         );
