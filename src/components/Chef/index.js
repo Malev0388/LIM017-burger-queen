@@ -9,7 +9,6 @@ export const Chef = () => {
   const usersCollectionRef = collection(db, "ordenes");  
 
   const getUsers = async () => {
-   // const data = await getDocs(usersCollectionRef);
    const data = await getDocs(query(usersCollectionRef, where("state", "<", 2)));
     setTotal(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));   
   };
@@ -110,10 +109,4 @@ const buttonState = async (user) => {
     </div>
   );
 };
-
 export default Chef;
-
-
-/*
-
-*/
