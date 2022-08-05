@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./styleOrders.css";
 import { collection, getDocs, query, where,doc,updateDoc } from "firebase/firestore";
 import { db } from "../../../firebase/connection.js";
-//import BreakfastProduct from "../Breakfast/BreakfastProduct.js";
-//import ProductSelection from "../Breakfast/ProductSelection.js";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
 
@@ -26,8 +24,7 @@ export const OrdersReady = () =>{
 const buttonStates = async (orderReady) => {
     console.log(orderReady)  
    const userState = doc(db, "ordenes", orderReady.id); 
-  
-    //
+
     switch(orderReady.state){
       case 2 :
         try{
@@ -47,23 +44,6 @@ const buttonStates = async (orderReady) => {
           timer: 1500
         })  
      break;
-    /*  case 3 :
-        try{
-          await updateDoc(userState, {
-            state: 4,   
-          })
-          deliverOrders();
-        } catch (error) {
-          console.log(error)
-        }   
-        Swal.fire({
-          position: 'top-center',
-          icon: 'success',
-          title: 'Pedido enviado a mesero',
-          showConfirmButton: false,
-          timer: 1500
-        }) 
-      break;*/
     }
   };
 
@@ -94,9 +74,9 @@ const buttonStates = async (orderReady) => {
        <div className="containerOrders">
         {cookedOrders.map((orderReady, id) => {
             return (
-            <div className={'containerOrdersReady '+ (orderReady.state ==0 ? 'containerOrdersReady':orderReady.state ==3 ?'containerOrdersReady-preparing': '')}
+            <div className={'containerOrdersReady '+ (orderReady.state ==0 ? 'containerOrdersReady':orderReady.state ==3 ?'': '')}
             key={id}>
-              <div className={'numberTableOrders '+ (orderReady.state ==0 ? 'numberTableOrders':orderReady.state ==3 ?'numberTableOrders-preparing': '')}>
+              <div className={'numberTableOrders '+ (orderReady.state ==0 ? 'numberTableOrders':orderReady.state ==3 ?'': '')}>
                 Cliente: {orderReady.nameClient} 
                 <br/>
                 Numero de mesa: {orderReady.numberClient}
@@ -119,7 +99,7 @@ const buttonStates = async (orderReady) => {
                 </h1>
                 <div className="commentsTextStyleOrders">{orderReady.comentOrder}</div>
               </div>
-              <button className={'buttonStyleOrders '+ (orderReady.state ==0 ? 'buttonStyleOrders':orderReady.state ==3?'buttonStyleOrders-preparing': '')}
+              <button className={'buttonStyleOrders '+ (orderReady.state ==0 ? 'buttonStyleOrders':orderReady.state ==3?'': '')}
                onClick={ ()=> buttonStates(orderReady)}> 
               {orderReady.state ? 'entregar':'pendiente'} 
               </button>
