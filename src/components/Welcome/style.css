@@ -4,11 +4,12 @@
     align-content: center;
     justify-items: center;
 }
-.principal-logo-bq{
+.viewLogoBurgerQueen{
     max-height: auto;
     max-width: 387px;
     padding: 30px;
 }
+
 a{
     text-decoration: none;
     color: white;
@@ -20,7 +21,7 @@ a{
     width: 200px;
     text-align: center ;   
 }
-.btn.btn-welcome{
+.btn.buttonMenuView{
     background-color: #F2BB6B;     
     font-family: 'Kadwa', serif;
     font-weight: bold;
@@ -31,4 +32,8 @@ a{
     border-width: 3px;
 
 }
-
+/*.buttons-mesero {
+    display: flex;
+    justify-content: space-around;
+}
+*/
